@@ -20,4 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group( ['prefix' => 'task'], function () {
     Route::get( '/', 'App\Http\Controllers\TaskController@getTasks' );
+    Route::post( '/', 'App\Http\Controllers\TaskController@store' );
+    Route::put( '/like/{id}', 'App\Http\Controllers\TaskController@addLike' );
+    Route::delete( '/{id}', 'App\Http\Controllers\TaskController@deleteTask' );
 });
