@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { TaskContext } from '../../context/TaskContext';
+import TaskAddForm from '../Task/TaskAddForm';
 
 const CtcNavBarComponent = () => {
     const { state, dispatch } : any = useContext( TaskContext );
-
+    
     const handleOpenModal = () => {
-        dispatch( { type: 'openModal' } );
+        dispatch( { type: 'openModal', payload: TaskAddForm } );
     }
 
     return (

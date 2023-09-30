@@ -22,4 +22,12 @@ export interface TaskItemInterface {
     created_at:     string;
     updated_at:     string;
     deleted_at:     null;
+    isLiked?:       boolean;
+}
+
+export interface SaveTaskFormInterface {
+    title: string;
+    description: string;
+    author: string;
+    republic_state: string;
 }
