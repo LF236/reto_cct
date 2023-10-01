@@ -1,10 +1,10 @@
 import taskApi from '../apis/taskApi';
 import { GetTaskRequestInterface, SaveTaskFormInterface } from '../interfaces/TaskInterfaces';
 
-export const getTask = () : Promise<GetTaskRequestInterface> => {
+export const getTask = ( filter: string ) : Promise<GetTaskRequestInterface> => {
     return new Promise( async ( resolve, reject ) => {
         try {
-            const task = await taskApi.get( '/api/task' );
+            const task = await taskApi.get( '/api/task', { params: { filter } } );
             resolve( task.data.data );
         }
         catch( err ) {

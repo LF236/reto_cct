@@ -67,6 +67,9 @@ const TaskItem = ( { item } : Props ) => {
                 <p className='author'>
                     <span>Autor:</span> { item.author }
                 </p>
+                <p className='author'>
+                    <span>Estado:</span> { item.republic_state }
+                </p>
             </div>
         </div>
     );

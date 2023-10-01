@@ -14,10 +14,13 @@
     display: flex;    
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 
 .card-item {
     margin-right: 1rem;
+    margin-top: 1rem;
+    
 }
 
 .date {
@@ -88,4 +91,12 @@
 
 .author > span {
     font-weight: bold;
+}
+
+.loader-msg-content {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

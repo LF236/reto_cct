@@ -11,7 +11,8 @@ const init = () : TaskContextInterface => {
     return {
         openModal: false,
         listTask: [],
-        isLoading: true
+        isLoading: true,
+        filter: ''
     }
 }
 
@@ -20,7 +21,7 @@ const CtcPage = () => {
 
     useEffect( () => {
         dispatch( { type: 'startLoading' } );
-        getTask()
+        getTask( state.filter )
         .then( res => {
             dispatch( {
                 type: 'setAllTask',
@@ -36,7 +37,7 @@ const CtcPage = () => {
         .finally( () => {
             dispatch( { type: 'stopLoading' } );
         } );
-    }, [] );
+    }, [ state.filter ] );
 
     return (
         <TaskContext.Provider value={ { state, dispatch } }>

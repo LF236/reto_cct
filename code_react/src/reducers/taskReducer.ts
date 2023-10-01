@@ -51,6 +51,11 @@ export const taskReducer = ( state : any = {}, action: any ) => {
                 ...state,
                 listTask: state.listTask.filter( ( ele: TaskItemInterface ) => ele.id !== action.payload )
             }
+        case 'filterChange':
+            return {
+                ...state,
+                filter: action.payload
+            }
         default:
             return state;
     }

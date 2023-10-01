@@ -2,6 +2,7 @@ export interface TaskContextInterface {
     openModal: boolean;
     listTask: TaskItemInterface[];
     isLoading: boolean;
+    filter: string;
 }
 
 
