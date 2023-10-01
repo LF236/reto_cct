@@ -11,7 +11,12 @@ class TaskController extends BaseController {
     use ToolsTrait;
 
     public function getTasks( Request $request ) {
-        $query = \App\Models\Task::get();
+        $query = \App\Models\Task::orderBy('created_at', 'desc');
+        if( $request->query( 'filter' ) ) {
+            $query->where( 'title', 'like', '%'.$request->query( 'filter' ).'%' );
+            $query->orWhere( 'republic_state', 'like', '%'.$request->query( 'filter' ).'%' );            
+        }
+        $query = $query->get();
         return response()->json( [            
             'ok' => true,
             'data' => $query
